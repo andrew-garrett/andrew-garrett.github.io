@@ -667,5 +667,26 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .gdriveVideo {
-    width:360; 
-  }
+    width:360px; 
+}
+
+p {
+    text-indent: 20px;
+}
+
+blockquote {
+    margin-left: 20px;
+}
+
+ul > li {
+    margin-left: 20px;
+}
+
+.blog__img {
+    display: block;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: center;
+}
