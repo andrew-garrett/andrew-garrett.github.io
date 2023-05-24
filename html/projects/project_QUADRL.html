@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <!-- Put your site title here -->
+    <title>
+        QUAD RL
+    </title>
+
+    <meta name="description" content="Project QUAD RL">
+    <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
+    <meta name="keywords" content="Andrew Garrett, UPenn, Robotics, Computer Vision, Deep Learning, Machine Learning" />
+    <link rel="stylesheet" href="../../index.css" />
+</head>
+
+<body>
+
+  <!-- ***** Header ***** -->
+
+    <header class="header" role="banner" id="top">
+        <div class="row">
+            <nav class="nav" role="navigation">
+                <ul class="nav__items">
+                  <!-- <li class="nav__item">
+                    <a href="../../index.html" class="nav__link">home</a>
+                  </li> -->
+                </ul>
+            </nav>
+        </div>
+        <div class="header__text-box row">
+            <div class="header__text">
+                <h1 class="heading-primary">
+                    <!-- Project title -->
+                    <span>
+                        Project QUAD RL
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/andrew-garrett/quad_rl" title="View Source Code" style="float: right;">
+                            <img src="../../assets/icons/github.svg" height="50px" alt="GitHub">
+                        </a>
+                    </span>
+                </h1>
+                <!-- Put a small paragraph about the project -->
+                <p>Gym Environment for Learning-based Planning and Control</p>
+                <a href="../../index.html#academics" class="btn btn--pink">Go Back</a>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section>
+            <div class="row">
+                <p>
+                    This project started out as a final project for <a href="../academics/course_ESE650.html">ESE650</a>, where I worked with two of my friends,
+                    <a href="https://phil-sieg.com/">Phil</a> and <a href="https://www.linkedin.com/in/ramya-muthukrishnan-96138b124/">Ramya</a>.  For our final
+                    project, we investigated a sampling-based approach to Model-Predictive Control.  I will walk through the general project, but I will focus
+                    on highlighting my own contributions (bc this is my website lol).  The primary focus of the project was to implement the MPPI Controller onto
+                    a quadrotor in a Gym environment.  The success of the MPPI Controller for aggressive manuveuring with mobile robots was popularized by 
+                    <a href="https://ieeexplore.ieee.org/document/7487277">Grady et al, 2016</a>.  Notably, our work focused on comparing an analytical model of
+                    the system dynamics to a neural network model of the system dynamics.  Furthermore, we developed some understanding of how the fidelity of 
+                    the ground truth dynamics model affects network generalization, such as including drag, downwash, and ground effect.  Shown below is a video
+                    we used to demo the performance of the MPPI Algorithm.  It's not perfect but a huge amount of work is required to even create a testbed for different
+                    planning and control algorithms.  As such, I am proud of the performance of this system, and hopefully can improve upon it's performance in the future!
+                </p>
+
+                <figure> 
+                    <video class="blog__img" preload="auto" controls>
+                        <source src="https://drive.google.com/uc?export=download&id=1zhbfP8Bi0-aisybkw-54AJrQraPu8DMN" type='video/mp4'>
+                    </video>
+                    <figcaption class="blog__img">
+                        Figure 1: A sample video of the MPPI planning and control module.  Red markers are RDP-pruned waypoints created from a dense, 2D leminiscate path.  
+                        Blue markers are the desired global trajectory, created by a custom, differentially-flat, minimum-snap trajectory generation routine.  Green markers
+                        are the tracked flight of the quadrotor.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    I will use the writeup we submitted as our final project in ESE650 as a stand-in for further explanation as I work on filling up the rest of my portfolio.
+                    I also plan to put in some work to expand this project even further.  Until then, click the link below for our final writeup!
+                </p>
+                <a href="../../assets/documents/ESE_650_Final_Report.pdf" class="btn" target="_blank" rel="noopener noreferrer">Final Report</a>
+            </div>
+        </section>
+    </main>
+
+  <!-- ***** Footer ***** -->
+
+    <footer role="contentinfo" class="footer">
+        <div class="row">
+            <!-- Update the links to point to your accounts -->
+            <ul class="footer__social-links">
+                <li class="footer__social-link-item">
+                    <a href="https://twitter.com/nisarhassan12/" title="Link to Twitter Profile">
+                        <img src="../../assets/icons/twitter.svg" class="footer__social-image" alt="Twitter">
+                    </a>
+                </li>
+                <li class="footer__social-link-item">
+                    <a href="https://github.com/andrew-garrett/" title="Link to Github Profile">
+                        <img src="../../assets/icons/github.svg" class="footer__social-image" alt="Github">
+                    </a>
+                </li>
+                <li class="footer__social-link-item">
+                    <a href="https://codepen.io/nisar_hassan" title="Link to Codepen Profile">
+                        <img src="../../assets/icons/codepen.svg" class="footer__social-image" alt="Codepen">
+                    </a>
+                </li>
+                <li class="footer__social-link-item">
+                    <a href="https://www.linkedin.com/in/andrew-garrett-939a94143/">
+                        <img src="../../assets/icons/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+                    </a>
+                </li>
+            </ul>
+
+            <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
+            <p>
+                &copy; 2020 - Template designed & developed by <a href="https://nisar.dev" class="link">Nisar</a>.
+            </p>
+            <div class="footer__github-buttons">
+                <iframe
+                    src="https://ghbtns.com/github-btn.html?user=nisarhassan12&repo=portfolio-template&type=watch&count=true"
+                    frameborder="0" scrolling="0" width="170" height="20" title="Watch Portfolio Template on GitHub">
+                </iframe>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="back-to-top" title="Back to Top">
+        <img src="../../assets/icons/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
+    </a>
+    <script src="../../index.js"></script>
+</body>
+
+</html>
