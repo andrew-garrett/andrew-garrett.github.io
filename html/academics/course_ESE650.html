@@ -1,19 +1,3 @@
-<!-- 
-  Hello 😊.
-
-  This template is designed and developed by Nisar Hassan Naqvi
-  for anyone to use for free or customize the way they like.
-
-  Github Repo: https://github.com/nisarhassan12/portfolio-template/
-  My Website: https://nisar.dev
-
-  For business & inquires, contact me => syednisarhassan12@gmail.com
--->
-
-<!--
-  Follow the instructions written in comments to create your stunning portfolio
--->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 
     <!-- Put your site title here -->
     <title>
@@ -76,6 +64,8 @@
                     </ul>
                 </p>
 
+                <h3>State Estimation</h3>
+
                 <blockquote cite="http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf">
                     <em>
                         "The state of a robot is a set of quantities, such as position, orientation, and velocity, that, if known, fully describe that robot's motion over time...
@@ -89,9 +79,9 @@
                     of joint, marginal, and conditional probability distributions, expectation and covariance of various types of distributions, Bayes Rule, and Markov Chains.  We
                     can then use these mathematical tools to develop a generalizable model of markovian systems: the <b>Hidden Markov Model (HMM)</b>.  This is a powerful and  fundamental
                     abstraction used to reason about the observations of the state of a markov chain, where observations are treated as random variables.  Mathematically,
-                    HMMs are best represented with a <em>transition matrix</em> and an <em>emission matrix</em>.  The entry at (i,j) in a transition matrix describes the probability
-                    of <em>transitioning</em> from state i to state j.  The entry at (i,j) in an emission matrix describes the probability of making observation j when the system is 
-                    in state i.  The HMM framework allows for concise mathematical formulation of many problems in state estimation, such as filtering, smoothing, prediction, decoding,
+                    HMMs are best represented with a <em>transition matrix</em> \( T \) and an <em>emission matrix</em> \( M \).  The entry at (i,j) in a transition matrix, \( T_{i,j} \), describes the probability
+                    of <em>transitioning</em> from state \( x = i \) to state \( x = j \).  The entry at (i,j) in an emission matrix, \( M_{i,j} \), describes the probability of making observation \( y = j \) when the system is 
+                    in state  \( x = i \).  The HMM framework allows for concise mathematical formulation of many problems in state estimation, such as filtering, smoothing, prediction, decoding,
                     and observation likelihood.
                 </p>
                 <p>
@@ -102,7 +92,7 @@
                     This primes students with an understanding of the basics of robot state estimation.  An accurate and precise state-estimation system is one of the first steps, 
                     if not the first step, to deploying robotic systems into the real world.
                 </p>
-                <!-- class="blog__img"  -->
+
                 <figure> 
                     <img class="blog__img" src="../../assets/images/hmm.jpg" alt="HMM">
                     <figcaption class="blog__img">
@@ -110,6 +100,94 @@
                         (happy, sad).  The green arrows define the <em>transition probabilities</em>, while the red arrows define the <em>emission probabilities</em>.
                     </figcaption>
                 </figure>
+
+                <p>
+                    With a fundamental understanding of state estimation in-hand, we now examine some of the most popular and useful algorithms for state estimation.  
+                    A <b>Markov Decision Process (MDP)</b> is a useful formulation for systems where the dynamics or observations cannot be comprehensively or correctly written in the 
+                    matrix forms for HMMs.  In such cases, it is convenient to consider noisy dynamics and observation functional models, i.e. \( x_{k+1} = f(x_{k}, u_{k}) \) and 
+                    \( y_{k} = g(x_{k}, u_{k}) \).  With this formulation, we introduce the <b>Kalman Filter</b>, which is perhaps the most important algorithm in all of robotics.  
+                    The Kalman Filter works under slightly more specific assumptions than the algorithms we looked at previously.  Namely, the basic Kalman Filter is valid under the following conditions:
+                    <ul>
+                        <li>Linear Dynamics, <em>i.e.</em> \( x_{k+1} = Ax_{k} + Bu_{k} + \epsilon_{k} \) where:
+                            <ul>
+                                <li>\( x \in \mathbb{R}^{d}, u \in \mathbb{R}^{m} \) are the state and control, respectively</li>
+                                <li>\( A \in \mathbb{R}^{d \times d}, B \in \mathbb{R}^{d \times m} \)</li>
+                                <li>\( \epsilon \sim \mathcal{N}(0, R), R \in \mathbb{R}^{d \times d} \) is the <b>Gaussian</b> dynamics noise</li>
+                            </ul>
+                        </li>
+                        <li>Linear Observations, <em>i.e.</em> \( y_{k} = Cx_{k} + Du_{k} + \nu_{k} \) where:
+                            <ul>
+                                <li>\( y \in \mathbb{R}^{p} \) is the observation</li>
+                                <li>\( C \in \mathbb{R}^{p \times d}, D \in \mathbb{R}^{p \times m} \)</li>
+                                <li>\( \nu \sim \mathcal{N}(0, Q), Q \in \mathbb{R}^{p \times p} \) is the <b>Gaussian</b> observation noise</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>    
+                    This essentially constrains the use-cases of the base Kalman Filter to MDPs with linear dynamics models perturbed by gaussian noise, and linear observation models
+                    perturbed by gaussian noise.  These assumptions are critical in the formulation of the <em>Kalman Gain</em>.  Notably, the Kalman Filter is optimal for systems that 
+                    meet these requirements.  However, nonlinear dynamics models and/or the observation models are typical in robotic systems.  So how do we handle such cases?  Well, we
+                    don't; we give up hope and treat the problem as completely intractable and impossible to solve.  Obviously, I am joking here; in fact, we have quite a lot of different
+                    approaches to solve such problems.  
+                </p>
+                <p>
+                    The Kalman Filter can be adapted to cases where the dynamics and/or observations are nonlinear, while keeping the assumption that the noise in these models remains Gaussian.
+                    There are several adaptations which exist, but the two KF variants we cover in this course are the <b>Extended Kalman Filter (EKF)</b> and the <b>Unscented Kalman Filter (UKF)</b>.
+                    The EKF is very straightforward and intuitive, in formulation, application, and explanation.  The core principle of the EKF is to use a Taylor Approximation to linearize the dynamics
+                    or observations model at timestep \( k \) about the latest filtered estimates.  After performing this linearization, the system meets the qualifications of the base KF and as such 
+                    the KF update equations can be applied without issue.  There are cases, however, where the behavior of the linearized system diverges significantly from the behavior of the true system.
+                    Such cases are well-handled by the UKF, which leverages the <b>Unscented Transform (UT)</b> to obtain better estimates of system mean and covariance.  For the sake of brevity, the 
+                    UKF uses the UT to construct a set of representative <em>sigma points</em>, and a weighted average is computed to yield mean and covariance estimates of the dynamics and observation models.
+                    A more comprehensive understanding of the UKF can be found <a href="http://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf">in chapter 3 of Barfoot et al.</a>.
+                </p>
+                <p>
+                    The second homework in this course asks students to formulate and implement an EKF from scratch for an unknown/arbitrary system with nonlinear dynamics and observation models, and similarly 
+                    implement a UKF for estimating quaternion orientation of a quadrotor from IMU measurements.  This assignment gives students the opportunity to learn by experience (and pain) how these algorithms 
+                    work from the ground up, which is highly beneficial for developing a deep understanding of how modern state-estimation systems work.
+                </p>
+
+                <figure> 
+                    <img class="blog__img" src="../../assets/images/ukf.jpg" alt="HMM">
+                    <figcaption class="blog__img">
+                        Figure 2: A sample plot comparing the UKF estimated orientation to a ground-truth orientation of a quadrotor flying in an indoor environment.  At each timestep, the UKF takes in raw 
+                        IMU measurements, calibrates them, and computes running estimates of the mean and covariance for the quaternion orientation.  Personally, I find euler angles
+                        make for more understandable plots.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    We now have a strong understanding of state estimation, whether we like it or not.  A natural progression, which this course's curriculum follows, is to examine a class of algorithms
+                    called <b>Simultaneous Localization and Mapping (SLAM)</b>.  SLAM is another critical componnt of the robotics stack.  Localization is a special case of state estimation where
+                    the state is the robot's pose (position and orientation) and the robot's velocity (oftentimes both linear and angular).  Mapping describes the process of capturing perceptual data such
+                    as camera images, lidar ranges, and radar data, and combining it with localization information to create a filtering estimate of the surrounding environment.  In ESE650, we cover
+                    a standard method for probabilistic mapping in two dimensions, which can be extended to three dimensions by leveraging efficient data structures such as 
+                    <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.KDTree.html">kD-trees</a> and <a href="https://www.geeksforgeeks.org/octree-insertion-and-searching/">octrees</a>.
+                    <a href="../projects/project_TELLOSLAM.html">One of my ongoing personal projects</a> is focused on implementing a SLAM stack for an inexpensive quadrotor platform.
+                </p>
+
+                <!-- <p>
+                    The third homework in this course spans several different topics, however this is arguably the largest homework in the course, so not all of these topics are exactly coherent with one 
+                    another, especially in the way that I have broken down this page.  This homework has students implement a prototypical policy iteration algorithm for a gridworld, a SLAM algorithm for
+                    a humanoid robot with lidar, and an hybrid LQR controller for an <a href="http://underactuated.mit.edu/acrobot.html#section1">acrobot</a>.  I found this to be the most interesting, 
+                    valuable, and time-consuming assignment in the course, and I take pride in what I was able to accomplish with it.
+                </p>
+
+                <figure> 
+                    <img class="blog__img" src="../../assets/images/ukf.jpg" alt="HMM">
+                    <figcaption class="blog__img">
+                        Figure 2: A sample plot comparing the UKF estimated orientation to a ground-truth orientation of a quadrotor flying in an indoor environment.  At each timestep, the UKF takes in raw 
+                        IMU measurements, calibrates them, and computes running estimates of the mean and covariance for the quaternion orientation.  Personally, I find euler angles
+                        make for more understandable plots.
+                    </figcaption>
+                </figure>
+
+                <h3>Control</h3>
+
+                <p>
+                    The next pillar of robotics which is covered in ESE650 is optimal control.  In my mind, if the robotics stack were to be completely serialized, the outputs generated
+                    from state-estimation or SLAM modules would serve as inputs to a planning & control module.  
+                </p> -->
 
                 <!-- <video class="gdriveVideo" preload="auto" controls>
                     <source src="https://drive.google.com/uc?export=download&id=1zhbfP8Bi0-aisybkw-54AJrQraPu8DMN" type='video/mp4'>
