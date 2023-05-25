@@ -411,7 +411,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .header {
     background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./assets/images/header.jpg');
+        url('./assets/images/HEADER.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -689,4 +689,27 @@ ul > li {
     margin-right: auto;
     padding: 10px;
     text-align: center;
+}
+
+.blog__img__small__container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.blog__img__small {
+    display: inline-block;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.sub__header {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    line-height: var(--line-height-small);
+    color: var(--pink);
 }

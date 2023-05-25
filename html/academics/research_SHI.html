@@ -1,26 +1,10 @@
-<!-- 
-  Hello 😊.
-
-  This template is designed and developed by Nisar Hassan Naqvi
-  for anyone to use for free or customize the way they like.
-
-  Github Repo: https://github.com/nisarhassan12/portfolio-template/
-  My Website: https://nisar.dev
-
-  For business & inquires, contact me => syednisarhassan12@gmail.com
--->
-
-<!--
-  Follow the instructions written in comments to create your stunning portfolio
--->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="../../assets/images/FAVICON.png" />
 
     <!-- Put your site title here -->
     <title>
@@ -62,9 +46,182 @@
         </div>
     </header>
 
-  <main role="main">
+    <main role="main">
+        <section>
+            <div class="row">
+                <p>
+                    As animals that are capable of a high level understanding of the world, vision is one of our most powerful senses.  
+                    Every second, huge amounts of dense information are streamed from the world through our eyes, among other percepts. 
+                    In fact, looking more holistically, we can think of the human brain as taking in sensory information from many different 
+                    sources, including vision, and building a model of the world around us. Each of us has our own little internal metaverse, 
+                    if you will. In AI and psychology, we call this phenomenon <b>multimodality</b>, or <b>multi-modal perception</b>.
+                </p>
+                <p>
+                    I come from a primarily AI and robotics background, so I often find it useful to relate concepts of psychology back 
+                    to these disciplines. The brain is a highly efficient computational device which can take in many different signals, 
+                    such as sound, vision, body orientation, etc, and is still able to filter out noise to create a unified model of our 
+                    own bodies and our surrounding environment. I like to imagine that if my laptop tried to do that, it might burn down 
+                    my apartment.
+                </p>
 
-  <!-- ***** Footer ***** -->
+                <h3>Project Outline</h3>
+
+                <p>
+                    In my work with <a href="https://www.cis.upenn.edu/~jshi/">Dr. Jianbo Shi</a> at the University of Pennsylvania, we use deep learning, computer vision, and 
+                    reinforcement learning to computationally model human focus and attention. Humans are innately good at solving problems 
+                    using both high-level common sense and low-level technical reasoning. In our experiments, we seek to place human subjects 
+                    in an unfamiliar environment that requires them to use their instincts, common sense, and technical reasoning. But how 
+                    do we achieve all three of these abstract human factors? Our group has settled on using an <a href="https://en.wikipedia.org/wiki/Escape_room">Escape-the-Room</a> (or escape-room) 
+                    as our experimental setting because this presents a unique opportunity to observe human behavior when presented with 
+                    problem-solving tasks in an unfamiliar environment. Furthermore, an escape-room presents an explicitly defined goal with 
+                    minimal instruction on how to accomplish said goal, rendering the domain of possible human behaviors highly diverse.  
+                    By explaining the scenario minimally to our subjects, we can maximize their creative potential in decision-making.  
+                    In this sense, the idea that everyone approaches problems differently comes strongly in to play.  By using deep learning, 
+                    we hope to characterize the human capacity for diverse exploration and problem-solving behaviors.
+                </p>
+
+                <h3>Data Collection</h3>
+
+                <p>
+                    So I've framed the experimental question our group is exploring, but how do we even observe subjects in this environment?  
+                    Data collection procedures was a big focus of my work this summer, so hopefully I can convey our setup clearly.  In the same 
+                    way that it is not ideal for humans to be missing one of their senses, we need to be able to record data from many different 
+                    sources in order to build a complete picture of an experiment. This all starts with using 3D scanning technology to develop an 
+                    accurate model of the experimental setup before any subject has entered. Using a <a href="https://matterport.com/">Matterport</a> scanner and the Matterport API, we 
+                    are able to develop a highly detailed 3D model of the escape-room without visual occlusions. Matterport scanners and the associated 
+                    software are capable of high quality (99% dimensional accuracy) 3D reconstructions and 3D renderings. The scanner uses LIDAR and 
+                    high quality images to build the 3D reconstruction, but beyond this I can't say much because the SDK is proprietary. Shown below is 
+                    an example 3D model of a room in which I collected Matterport scans (don't get dizzy).
+                </p>
+
+                <figure> 
+                    <video class="blog__img" preload="auto" controls>
+                        <source src="https://drive.google.com/uc?export=download&id=1ZF1iRWTYdjXvgbh2PhYTKZRFJzYjwpZ5" type='video/mp4'>
+                    </video>
+                    <figcaption class="blog__img">
+                        Figure 1: Shown here is an internal view of one of the spaces we use for conducting experiments.  Notice that even with some of
+                        the highest quality 3D reconstruction hardware and software, there are still small defects, such as jagged edges of walls and warped 
+                        blobs on thin-structures.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Once we have scanned the environment, we record experimental subject data using multiple synchronized MS Azure Kinect 3D cameras, 
+                    Insta360 spherical capture cameras, a GoPro camera, and Tobii gaze tracking glasses. Yes, that's a lot of data, but let's look briefly 
+                    at what each source of data does. The <a href="https://azure.microsoft.com/en-us/services/kinect-dk/">Azure Kinect</a> is a highly advanced 3D-imaging camera commonly used in robotics and autonomous vehicle 
+                    research. The Kinect camera can record RGB-D data, which means that it captures an RGB image from a 12MP camera and a Depth image from a 
+                    1MP depth sensor. One of the powerful utilities of the Kinect camera is its ability to externally sync with other wired Kinects. We leverage 
+                    this utility by synchronizing two Kinect cameras which are stationed in adjacent corners of a room, close to the ceiling for isometric views 
+                    of the scene. The Insta360 spherical capture camera uses two high-resolution fisheye lenses to capture two very wide-angle images, which can 
+                    then be stitched together almost seamlessly to create a spherical image. The <a href="https://www.insta360.com/product/insta360-onex2">Insta360 camera</a> is also capable of undistorting its spherical 
+                    images into flat images, as well as person tracking. We have collected data using a single centrally located Insta360 camera as well as two 
+                    centrally located Insta360 cameras (for stereo vision). The GoPro models we have been collecting data with are the <a href="https://www.cnet.com/reviews/gopro-hero4-session-review/">HERO4 SESSION</a> and <a href="https://gopro.com/en/us/shop/cameras/hero10-black/CHDHX-101-master.html">HERO10 BLACK</a>.  If you're 
+                    unfamiliiar, GoPro is one of the leaders of the wifi-enabled, action camera industry. We selected the GoPro Session line of cameras because 
+                    of their small size and weight, which couples well with their modularity for first-person video recording. We mount the GoPro on the head of 
+                    a subject and angle it down to give a good view of the subject's hands. The GoPro is a low-cost but integral sensor to data collection because 
+                    it captures the subject's direct interactions with their environment, from their own perspective. Tobii is another leader of the specialized 
+                    camera industry, focusing mostly on eye-tracking technology as well as other bio-sensors. Our group has acquired a pair of <a href="https://www.tobiipro.com/product-listing/tobii-pro-glasses-2/">Tobii Pro Glasses 2</a>  
+                    which are research-grade gaze-tracking glasses. These glasses, although not very stylish, are incredibly powerful; using four cameras facing the 
+                    wearers eyes (two for each eye) and an outward facing camera, the glasses+software can determine what the wearer is looking at in real-time.  
+                    This is extremely powerful in our data collection stack because it adds another degree of freedom, so in sum we can track:
+                </p>
+
+                <ul>
+                    <li>the global position of a subject's body within the room (Kinect/Insta360 cameras)</li>
+                    <li>the orientation of the subject's head at their current global position (GoPro camera)</li>
+                    <li>the direction of the subject's current gaze given their current global position and orientation (Tobii Glasses)</li>
+                </ul>
+
+                <p>
+                    Synchronizing all of these cameras was challenging. I was able to properly synchronize the Azure Kinect cameras in order to prevent interference 
+                    from their depth sensors. Once this was complete, it was simple to integrate and synchronize the GoPro camera using it's unofficial Python API.  
+                    Similarly for the Tobii glasses, the recording is started remotely from Tobii's command line, which is also integrated into our recording pipeline.  
+                    Unfortunately, I have yet to find a suitable API to control the Insta360 cameras. As such, I have found that using the Insta360 iphone app to start 
+                    recording wirelessly, but still manually. In order to manage the problem of synchronizing the Insta360 with GoPro, Kinect, and Tobii glasses, we use 
+                    a visual cue on a screen in the field of view of all cameras, which lets us to trim all videos to the same exact start frame. This technique also 
+                    gives an added layer of protection against asynchronicity that might have come from the pipeline I designed, though I haven't looked at this very deeply.
+                </p>
+
+                <h3>Post-processing</h3>
+
+                <p>
+                    So that's a lot of data, as a single 5 minute recording from all cameras totals to about 15GB of space. We have video data from 4-6 cameras, all of 
+                    which have been synchronized via the above trimming method. For brevity, I will try to highlight some of the interesting post-processing techniques I explored.
+                </p>
+
+                <h4 class="sub__header">GoPro</h4>
+
+                <p>
+                    For recording, we used the wide angle recording setting, which resulted in some distortion in the image (Fisheye model). As lame as it sounds, learning 
+                    how to properly calibrate a camera using one or a variety of tools is crucial. Thus, I spend a good deal of time attempting to calibrate find the camera 
+                    intrinsics (including distortion coefficients). I explored a variety of tools such as OpenCV, COLMAP, and MATLAB for this task, and I found that COLMAP 
+                    yielded the best visual results, while MATLAB was by far the most intuitive. That being said, OpenCV has the most functionality, meaning that instead of 
+                    calibrating tediously by taking many images, we can take a short video of a calibration object, extract frames, find corners, estimate fisheye camera 
+                    parameters, undistort the frames, and produce the same video without distortion. Shown below is an example result from calibrating the GoPro using this method 
+                    in OpenCV:
+                </p>
+
+                <figure>
+                    <div class="blog__img__small__container">
+                        <video class="blog__img__small" preload="auto" controls autoplay>
+                            <source src="https://drive.google.com/uc?export=download&id=1kEbqapnovLUp_o_2oZQ0h_MbHYHjIvDl" type='video/mp4'>
+                        </video>
+                        <video class="blog__img__small" preload="auto" controls autoplay>
+                            <source src="https://drive.google.com/uc?export=download&id=1bnuyxr0O10ZCiO9DpP_LkunRyRRmYXrf" type='video/mp4'>
+                        </video>
+                    </div>
+                    <figcaption class="blog__img">
+                        Figure 2: Shown above is a demonstration of the before and after of applying camera calibration to GoPro footage.  After estimating the camera intrinsic 
+                        parameters using OpenCV, the resulting calibrated video shows significant less lens distortion.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    For another application of the GoPro data, I ran inference using a pre-trained hand-dectection model.  This model detects various aspects 
+                    of human hands and objects.  Namely, the model is trained to differentiate left and right hands, palm and back of hand, and the type of contact 
+                    a hand is making with an object.  To learn more about this model, look into David Fouhey's fantastic work 
+                    with internet-scale egocentric video datasets <a href="https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/">here</a>.  
+                    Shown below is the result of running the trained model on a sample video.
+                </p>
+
+                <figure> 
+                    <video class="blog__img" preload="auto" controls>
+                        <source src="https://drive.google.com/uc?export=download&id=1i3aKAz3aRZd_khI_4nZxfwziVhy2JJmV" type='video/mp4'>
+                    </video>
+                    <figcaption class="blog__img">
+                        Figure 3: "100 Days of Hands" Model inference results on a sample video from a prototype escape room scenario.
+                    </figcaption>
+                </figure>
+
+                <h4 class="sub__header">Azure Kinect</h4>
+
+                <p>
+                    The Azure Kinect has a much more extensive SDK than the GoPro API, in addition to being a more complex sensor device. As a result, synchronizing 
+                    multiple Azure Kinects was not too difficult, most of the work was reading through a pretty sizable chunk of the SDK documentation to understand 
+                    the task of synchronization. Honestly, using this camera is pretty fun; the software has great visualization options and all the controls are right 
+                    there for you to tweak. The one thing that's pretty annoying is that the file type is .mkv, so you'll need a special tool to extract the different 
+                    'tracks' (RGB, Depth, IR, Audio). Because this device captures RGB-D data, it makes a good candidate for 3D reconstruction. The depth and RGB data 
+                    can be extracted into frames, which can be fused using an algorithm like Kinect Fusion. Shown below is a reconstruction generated by TSDF Fusion, 
+                    which is another common reconstruction algorithm, and is actually a subprocess of the Kinect Fusion algorithm.
+                </p>
+
+                <h4 class="sub__header">Insta360</h4>
+
+                <p>
+                    This is one of the most painful cameras to use as a developer, but one of the most fun cameras ever as a user
+                </p>
+
+                <h4 class="sub__header">Tobii Glasses</h4>
+
+                <p>
+                    This is what really made me realize "oh shit this is legit" with my research.
+                </p>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ***** Footer ***** -->
 
     <footer role="contentinfo" class="footer">
         <div class="row">
