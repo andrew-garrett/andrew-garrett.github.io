@@ -103,7 +103,18 @@
 
                 <p>
                     Other modes exist, such as <b>facial landmark</b> mode and <b>display</b> mode, and the parameters relating to the OAK-D camera are in the oak_config.MODE.json file.
+                    Shown below is a demo of the <b>facial landmark</b> mode, with depth map visualization.
                 </p>
+
+                <figure> 
+                    <video class="blog__img" preload="auto" controls>
+                        <source src="https://drive.google.com/uc?export=download&id=14zNifYWMzwMWFfGi1orIlli3ETcLLK7N" type='video/mp4'>
+                    </video>
+                    <figcaption class="blog__img">
+                        Figure 1: Demonstration of <b>facial landmark</b> mode, with depth map visualization.  Notice that the network predictions plotted on the rgb image are distorted
+                        This is purely the result of how the frames are visualized.  I use fullscreen OpenCV visualization, which stretches and squashes the frames to fit the display.
+                    </figcaption>
+                </figure>
 
                 <h3>Off-device Pipeline Customization</h3>
                 
