@@ -96,7 +96,39 @@
                 <h3>Network Training</h3>
                 
                 <p>
-                    In <b>model training</b> mode, ...
+                    Stepping away from the scope of deploying algorithms and systems onto the OAK-D camera, OAK-Deep also supports training, validation, and testing
+                    of neural networks in several different core computer vision tasks.  Currently the following is supported:
+                </p>
+
+                <ul>
+                    <li>Image Classification
+                        <ul>
+                            <li>Fully Convolutional Network (FCN) Architecture</li>
+                            <li>MobileNet V2 Architecture</li>
+                        </ul>
+                    </li>
+                    <li>Object Detection
+                        <ul>
+                            <li>YOLOv8 Architecture</li>
+                        </ul>
+                    </li>
+                    <li>Instance Segmentation
+                        <ul>
+                            <li>YOLOv8 Architecture</li>
+                        </ul>
+                    </li>
+                    <li>Image Generation
+                        <ul>
+                            <li>Vanilla/Basic GAN Architecture</li>
+                            <li>Deep Convolutional GAN Architecture</li>
+                        </ul>
+                    </li>
+                </ul>
+                    
+                <p>
+                    This allows users/developers to choose a dataset or input their own custom dataset, 
+                    select a network architecture, and run automatic training and validation.  Users/developers also have authority over the hyperparameters for architecture, 
+                    training, and logging.
                 </p>
 
                 <h3>On-device Pipeline Customization</h3>
