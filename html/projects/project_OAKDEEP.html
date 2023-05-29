@@ -60,13 +60,13 @@
                     <ul>
                         <li>4K RGB Capture, at up to 30 FPS</li>
                         <li>1280x800 Stereo Depth Capture, at up to 120 FPS</li>
-                        <li>Intel Movidius MyriadX Visual Processing Unit, up to 4 Trillion Operations per second
+                        <li>Intel Movidius MyriadX Visual Processing Unit (VPU), up to 4 Trillion Operations per second
                             <ul>
                                 <li>Support for on-board Neural Network Inference</li>
                                 <li>Pre/Post processing for on-board AI Pipelines</li>
                             </ul>
                         </li>
-                        <li>IMU (Accelerometer and Gyroscope), extracting quaternion orientation at up to 400 Hz</li>
+                        <li>IMU (Accelerometer, Gyroscope, Magnetometer), orientation estimates at up to 400 Hz</li>
                     </ul>
                 </p>
                 <p>
@@ -74,23 +74,11 @@
                     Project OAK-Deep focuses on exploring the vast computer vision and robotics applications which can be powered by minimal hardware outside of the OAK-D camera.
                     This project has infrastructure for the following:
                     <ul>
+                        <li>Network Training (Classification, Object Detection, Instance Segmentation, Image Generation)</li>
                         <li>Data Collection (Hardware-Specific Training Dataset Curation)</li>
-                        <li>Network Training (Classification, Object Detection, and Instance Segmentation)</li>
                         <li>RGB, Depth, IMU Pipeline-interchangeability (Highly customizable, json-based pipeline construction)</li>
                         <li>Custom Neural Inference Pipelines (Object Detection, OpenPose, Facial Keypoints)</li>
                     </ul>
-                    I'll go through each of these components at a high level and give some samples of what a user/developer can accomplish with this mini-library.
-                </p>
-
-                <h3>Data Collection</h3>
-
-                <p>
-                    In <b>data collection</b> mode, the camera will record and save frames from specified sources.  This feature allows the user/developer the option to
-                    upload collected data to an AWS S3 Bucket, if specified.  This feature can save rgb frames and depth frames, but at the moment cannot save IMU data or
-                    neural network preditions (might happen in a future release).  OAK-D offers onboard video encooding, but I have yet to explore this feature extensively.
-                    I'd like to explore efficient compression methods/filetypes, such as the h5 file extension, to handle faster data saving.  I'd also like to enable saving
-                    of IMU data and neural network predictions, which would also require timestamps to be provided for each type of frame (rgb and depth), IMU samples, and network 
-                    predictions.  For now though, this dataset collection pipeline is stable and users/developers can find their dataset in the <code>./datasets</code> directory.
                 </p>
 
                 <h3>Network Training</h3>
@@ -151,6 +139,18 @@
                     ecosystem by offering automated deployment of such models onto the OAK-D camera.
                 </p>
 
+                <h3>Data Collection</h3>
+
+                <p>
+                    In <b>data collection</b> mode, the camera will record and save frames from specified sources.  This feature allows the user/developer the option to
+                    upload collected data to an AWS S3 Bucket, if specified.  This feature can save rgb frames and depth frames, but at the moment cannot save IMU data or
+                    neural network preditions (might happen in a future release).  OAK-D offers onboard video encooding, but I have yet to explore this feature extensively.
+                    I'd like to explore efficient compression methods/filetypes, such as the h5 file extension, to handle faster data saving.  I'd also like to enable saving
+                    of IMU data and neural network predictions, which would also require timestamps to be provided for each type of frame (rgb and depth), IMU samples, and network 
+                    predictions.  For now though, this dataset collection pipeline is stable and users/developers can find their dataset in the <code>./datasets</code> directory.
+                </p>
+
+
                 <h3>On-device Pipeline Customization</h3>
 
                 <p>
@@ -171,7 +171,9 @@
                 <h3>Off-device Pipeline Customization</h3>
                 
                 <p>
-                    Similarly, there are pipelines which leverage off-device functionality.  The parameters which control these pipelines are also in the oak_config.MODE.json file.
+                    Similarly, there are pipelines which leverage off-device functionality.  The parameters which control these pipelines are also in the oak_config.MODE.json file.  Currently,
+                    most of th off-device pipeline functionality is geared toward visualizing network outputs.  My next steps will be to implement a basic SLAM pipeline with visualization, as well
+                    as AprilTag/ARuCo Marker AR visualization.
                 </p>
             </div>
         </section>
