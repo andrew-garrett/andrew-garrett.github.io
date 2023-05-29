@@ -119,16 +119,36 @@
                     </li>
                     <li>Image Generation
                         <ul>
-                            <li>Vanilla/Basic GAN Architecture</li>
-                            <li>Deep Convolutional GAN Architecture</li>
+                            <li>Basic GAN Architecture</li>
+                            <li>Deep Convolutional GAN (DCGAN) Architecture</li>
+                            <li>Deep Variational AutoEncoder (VAE) Architecture</li>
                         </ul>
                     </li>
                 </ul>
                     
                 <p>
-                    This allows users/developers to choose a dataset or input their own custom dataset, 
-                    select a network architecture, and run automatic training and validation.  Users/developers also have authority over the hyperparameters for architecture, 
-                    training, and logging.
+                    With a wide variety of tasks and networks to train such tasks, the user/developer can also choose from a vast number of different datasets.  OAK-Deep
+                    currently supports datasets sourced from <a href="https://universe.roboflow.com">Roboflow</a>, <a href="https://pytorch.org/vision/stable/datasets.html">Pytorch</a>,
+                    <a href="https://docs.ultralytics.com/datasets/?h=dataset">Ultralytics</a>, and even <b>custom datasets</b> with proper formatting.  This puts
+                    hundreds, possibly even <em>thousands</em>, of datasets at the fingertips of developers.
+                </p>
+                <p>
+                    With customization of task, network, and dataset, users/developers can stick to the defaults for training their own model, or they can choose hyperparameters
+                    which are best suited for their task.  Developers can control a set of well-studied training hyperparameters, such as batch size and number of epochs, learning rate, momentum, and weight decay,
+                    as well as optimizer and loss function.  For more seasoned deep learning developers, these parameters can also be tuned/explored relatively automatically, with 
+                    <a href="https://docs.wandb.ai/guides/sweeps#:~:text=There%20are%20two%20components%20to,them%20to%20run%20model%20training.">Weights and Biases Sweeps</a>.  Here are some 
+                    examples of projects I have created with OAK-Deep, visualized with <a href="https://wandb.ai/site">Weights and Biases</a>.
+                </p>
+
+                <ul>
+                    <li><a href="https://wandb.ai/andrew-garrett/oakd-research-generation/sweeps/83ck3gdj?workspace=user-">(a bit nightmarish) Human Face Generation Sweep</a></li>
+                    <li><a href="https://wandb.ai/andrew-garrett/oakd-research-segmentation?workspace=user-andrew-garrett">Amazon Armbench Object Segmentation</a></li>
+                    <li><a href="https://wandb.ai/andrew-garrett/oakd-research-detection?workspace=user-andrew-garrett">Weed Object Detection (don't worry, not the good kind of weed)</a></li>
+                </ul>
+
+                <p>
+                    I have designed this subset of the project to allows users to generally train and test their own neural networks, but my next steps are to fit it as a component in the OAK-Deep
+                    ecosystem by offering automated deployment of such models onto the OAK-D camera.
                 </p>
 
                 <h3>On-device Pipeline Customization</h3>
