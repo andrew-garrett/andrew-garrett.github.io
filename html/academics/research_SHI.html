@@ -67,11 +67,11 @@
                 <h3>Project Outline</h3>
 
                 <p>
-                    In my work with <a href="https://www.cis.upenn.edu/~jshi/">Dr. Jianbo Shi</a> at the University of Pennsylvania, we use deep learning, computer vision, and 
+                    In my work with <a target="_blank" rel="noopener noreferrer" href="https://www.cis.upenn.edu/~jshi/">Dr. Jianbo Shi</a> at the University of Pennsylvania, we use deep learning, computer vision, and 
                     reinforcement learning to computationally model human focus and attention. Humans are innately good at solving problems 
                     using both high-level common sense and low-level technical reasoning. In our experiments, we seek to place human subjects 
                     in an unfamiliar environment that requires them to use their instincts, common sense, and technical reasoning. But how 
-                    do we achieve all three of these abstract human factors? Our group has settled on using an <a href="https://en.wikipedia.org/wiki/Escape_room">Escape-the-Room</a> (or escape-room) 
+                    do we achieve all three of these abstract human factors? Our group has settled on using an <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Escape_room">Escape-the-Room</a> (or escape-room) 
                     as our experimental setting because this presents a unique opportunity to observe human behavior when presented with 
                     problem-solving tasks in an unfamiliar environment. Furthermore, an escape-room presents an explicitly defined goal with 
                     minimal instruction on how to accomplish said goal, rendering the domain of possible human behaviors highly diverse.  
@@ -87,7 +87,7 @@
                     Data collection procedures was a big focus of my work this summer, so hopefully I can convey our setup clearly.  In the same 
                     way that it is not ideal for humans to be missing one of their senses, we need to be able to record data from many different 
                     sources in order to build a complete picture of an experiment. This all starts with using 3D scanning technology to develop an 
-                    accurate model of the experimental setup before any subject has entered. Using a <a href="https://matterport.com/">Matterport</a> scanner and the Matterport API, we 
+                    accurate model of the experimental setup before any subject has entered. Using a <a target="_blank" rel="noopener noreferrer" href="https://matterport.com/">Matterport</a> scanner and the Matterport API, we 
                     are able to develop a highly detailed 3D model of the escape-room without visual occlusions. Matterport scanners and the associated 
                     software are capable of high quality (99% dimensional accuracy) 3D reconstructions and 3D renderings. The scanner uses LIDAR and 
                     high quality images to build the 3D reconstruction, but beyond this I can't say much because the SDK is proprietary. Shown below is 
@@ -108,19 +108,19 @@
                 <p>
                     Once we have scanned the environment, we record experimental subject data using multiple synchronized MS Azure Kinect 3D cameras, 
                     Insta360 spherical capture cameras, a GoPro camera, and Tobii gaze tracking glasses. Yes, that's a lot of data, but let's look briefly 
-                    at what each source of data does. The <a href="https://azure.microsoft.com/en-us/services/kinect-dk/">Azure Kinect</a> is a highly advanced 3D-imaging camera commonly used in robotics and autonomous vehicle 
+                    at what each source of data does. The <a target="_blank" rel="noopener noreferrer" href="https://azure.microsoft.com/en-us/services/kinect-dk/">Azure Kinect</a> is a highly advanced 3D-imaging camera commonly used in robotics and autonomous vehicle 
                     research. The Kinect camera can record RGB-D data, which means that it captures an RGB image from a 12MP camera and a Depth image from a 
                     1MP depth sensor. One of the powerful utilities of the Kinect camera is its ability to externally sync with other wired Kinects. We leverage 
                     this utility by synchronizing two Kinect cameras which are stationed in adjacent corners of a room, close to the ceiling for isometric views 
                     of the scene. The Insta360 spherical capture camera uses two high-resolution fisheye lenses to capture two very wide-angle images, which can 
-                    then be stitched together almost seamlessly to create a spherical image. The <a href="https://www.insta360.com/product/insta360-onex2">Insta360 camera</a> is also capable of undistorting its spherical 
+                    then be stitched together almost seamlessly to create a spherical image. The <a target="_blank" rel="noopener noreferrer" href="https://www.insta360.com/product/insta360-onex2">Insta360 camera</a> is also capable of undistorting its spherical 
                     images into flat images, as well as person tracking. We have collected data using a single centrally located Insta360 camera as well as two 
-                    centrally located Insta360 cameras (for stereo vision). The GoPro models we have been collecting data with are the <a href="https://www.cnet.com/reviews/gopro-hero4-session-review/">HERO4 SESSION</a> and <a href="https://gopro.com/en/us/shop/cameras/hero10-black/CHDHX-101-master.html">HERO10 BLACK</a>.  If you're 
+                    centrally located Insta360 cameras (for stereo vision). The GoPro models we have been collecting data with are the <a target="_blank" rel="noopener noreferrer" href="https://www.cnet.com/reviews/gopro-hero4-session-review/">HERO4 SESSION</a> and <a target="_blank" rel="noopener noreferrer" href="https://gopro.com/en/us/shop/cameras/hero10-black/CHDHX-101-master.html">HERO10 BLACK</a>.  If you're 
                     unfamiliiar, GoPro is one of the leaders of the wifi-enabled, action camera industry. We selected the GoPro Session line of cameras because 
                     of their small size and weight, which couples well with their modularity for first-person video recording. We mount the GoPro on the head of 
                     a subject and angle it down to give a good view of the subject's hands. The GoPro is a low-cost but integral sensor to data collection because 
                     it captures the subject's direct interactions with their environment, from their own perspective. Tobii is another leader of the specialized 
-                    camera industry, focusing mostly on eye-tracking technology as well as other bio-sensors. Our group has acquired a pair of <a href="https://www.tobiipro.com/product-listing/tobii-pro-glasses-2/">Tobii Pro Glasses 2</a>  
+                    camera industry, focusing mostly on eye-tracking technology as well as other bio-sensors. Our group has acquired a pair of <a target="_blank" rel="noopener noreferrer" href="https://www.tobiipro.com/product-listing/tobii-pro-glasses-2/">Tobii Pro Glasses 2</a>  
                     which are research-grade gaze-tracking glasses. These glasses, although not very stylish, are incredibly powerful; using four cameras facing the 
                     wearers eyes (two for each eye) and an outward facing camera, the glasses+software can determine what the wearer is looking at in real-time.  
                     This is extremely powerful in our data collection stack because it adds another degree of freedom, so in sum we can track:
@@ -180,7 +180,7 @@
                     For another application of the GoPro data, I ran inference using a pre-trained hand-dectection model.  This model detects various aspects 
                     of human hands and objects.  Namely, the model is trained to differentiate left and right hands, palm and back of hand, and the type of contact 
                     a hand is making with an object.  To learn more about this model, look into David Fouhey's fantastic work 
-                    with internet-scale egocentric video datasets <a href="https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/">here</a>.  
+                    with internet-scale egocentric video datasets <a target="_blank" rel="noopener noreferrer" href="https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/">here</a>.  
                     Shown below is the result of running the trained model on a sample video.
                 </p>
 
@@ -228,22 +228,22 @@
             <!-- Update the links to point to your accounts -->
             <ul class="footer__social-links">
                 <li class="footer__social-link-item">
-                    <a href="https://twitter.com/nisarhassan12/" title="Link to Twitter Profile">
+                    <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/nisarhassan12/" title="Link to Twitter Profile">
                         <img src="../../assets/icons/twitter.svg" class="footer__social-image" alt="Twitter">
                     </a>
                 </li>
                 <li class="footer__social-link-item">
-                    <a href="https://github.com/andrew-garrett/" title="Link to Github Profile">
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/andrew-garrett/" title="Link to Github Profile">
                         <img src="../../assets/icons/github.svg" class="footer__social-image" alt="Github">
                     </a>
                 </li>
                 <li class="footer__social-link-item">
-                    <a href="https://codepen.io/nisar_hassan" title="Link to Codepen Profile">
+                    <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/nisar_hassan" title="Link to Codepen Profile">
                         <img src="../../assets/icons/codepen.svg" class="footer__social-image" alt="Codepen">
                     </a>
                 </li>
                 <li class="footer__social-link-item">
-                    <a href="https://www.linkedin.com/in/andrew-garrett-939a94143/">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/andrew-garrett-939a94143/">
                         <img src="../../assets/icons/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
                     </a>
                 </li>
@@ -251,7 +251,7 @@
 
             <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
             <p>
-                &copy; 2020 - Template designed & developed by <a href="https://nisar.dev" class="link">Nisar</a>.
+                &copy; 2020 - Template designed & developed by <a target="_blank" rel="noopener noreferrer" href="https://nisar.dev" class="link">Nisar</a>.
             </p>
             <div class="footer__github-buttons">
                 <iframe

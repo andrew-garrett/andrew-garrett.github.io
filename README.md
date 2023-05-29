@@ -82,7 +82,7 @@ Each div with class `work__box` represents a project, replace the contents of th
         <a href="#" class="link__text">
         Visit Site <span>&rarr;</span>
         </a> 
-        <a href="https://github.com/nisarhassan12/portfolio" target="_blank">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/nisarhassan12/portfolio" >
         <img src="./images/github.svg" class="work__code" alt="GitHub">
         </a>
     </div>
@@ -195,17 +195,17 @@ For changing the screenshot:
         <!-- Update the links to point to your accounts -->
         <ul class="footer__social-links">
             <li class="footer__social-link-item">
-                <a href="https://twitter.com/nisarhassan12/">
+                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/nisarhassan12/">
                     <img src="./images/twitter.svg" class="footer__social-image" alt="Twitter">
                 </a>
             </li>
             <li class="footer__social-link-item">
-                <a href="https://github.com/nisarhassan12/">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/nisarhassan12/">
                     <img src="./images/github.svg" class="footer__social-image" alt="Github">
                 </a>
             </li>
             <li class="footer__social-link-item">
-                <a href="https://codepen.io/nisar_hassan">
+                <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/nisar_hassan">
                     <img src="./images/codepen.svg" class="footer__social-image" alt="Codepen">
                 </a>
             </li>
@@ -218,7 +218,7 @@ For changing the screenshot:
 
         <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
         <p>
-          &copy; 2020 - Template designed & developed by <a href="https://nisar.dev">Nisar</a>.
+          &copy; 2020 - Template designed & developed by <a target="_blank" rel="noopener noreferrer" href="https://nisar.dev">Nisar</a>.
         </p>
         <div class="footer__github-buttons">
           <iframe
