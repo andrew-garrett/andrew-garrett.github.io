@@ -195,8 +195,8 @@ For changing the screenshot:
         <!-- Update the links to point to your accounts -->
         <ul class="footer__social-links">
             <li class="footer__social-link-item">
-                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/nisarhassan12/">
-                    <img src="./images/twitter.svg" class="footer__social-image" alt="Twitter">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/_.a.n.d.r.3.w._/">
+                    <img src="./images/twitter.svg" class="footer__social-image" alt="Instagram">
                 </a>
             </li>
             <li class="footer__social-link-item">
@@ -205,8 +205,8 @@ For changing the screenshot:
                 </a>
             </li>
             <li class="footer__social-link-item">
-                <a target="_blank" rel="noopener noreferrer" href="https://codepen.io/nisar_hassan">
-                    <img src="./images/codepen.svg" class="footer__social-image" alt="Codepen">
+                <a target="_blank" rel="noopener noreferrer" href="https://wandb.ai/andrew-garrett">
+                    <img src="./images/wandb.svg" class="footer__social-image" alt="Weights and Biases">
                 </a>
             </li>
             <li class="footer__social-link-item">
@@ -218,7 +218,7 @@ For changing the screenshot:
 
         <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
         <p>
-          &copy; 2020 - Template designed & developed by <a target="_blank" rel="noopener noreferrer" href="https://nisar.dev">Nisar</a>.
+          &copy; 2023 - Template designed & developed by <a target="_blank" rel="noopener noreferrer" href="https://nisar.dev">Nisar</a>.
         </p>
         <div class="footer__github-buttons">
           <iframe
