@@ -46,7 +46,42 @@
         </div>
     </header>
 
-  <main role="main">
+    <main role="main">
+        <section>
+            <div class="row">
+
+                <figure> 
+                    <video class="blog__img" preload="auto" controls>
+                        <source src="https://drive.google.com/uc?export=download&id=1dErUYtGiQ_HiyVQgJig2C5oSHMOTzneG" type='video/mp4'>
+                    </video>
+                    <figcaption class="blog__img">
+                        Figure 1: RRT* Algorithm Implemented in ROS Simulation of the F1tenth Vehicle.  Visualized in RViz.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <div class="blog__img__small__container">
+                        <video class="blog__img__small" preload="auto" controls autoplay loop>
+                            <source src="https://drive.google.com/uc?export=download&id=1KE4NWkb-qNlLBdqjK39sdYNRZ-n3nvM5" type='video/mp4'>
+                        </video>
+                        <video class="blog__img__small" preload="auto" controls autoplay loop>
+                            <source src="https://drive.google.com/uc?export=download&id=1OFS1tnvVDazMfolXRSL9_q3f2q6bC0Me" type='video/mp4'>
+                        </video>
+                    </div>
+                    <figcaption class="blog__img">
+                        Figure 2: (Left) Static Obstacle Avoidance.  The Pure Pursuit Algorithm is used to tightly track a forward-backward optimized
+                        minimum-curvature raceline when no obstacle is present.  A Sampling Based Local Planner using <a href="">clothoids</a> is activated
+                        when the car comes too close to a wall or an obstacle lies on the raceline (detected with 2D LIDAR).  (Right) The same stack is
+                        implemented and <b>unchanged</b> for relatively consistent <b><u>dynamic obstacle avoidance</u></b>, while maintaining high speed.
+                    </figcaption>
+                </figure>
+                
+                <p>
+                    Yes the quality in the above videos is terrible, I'm working on refactoring and reviving this work so I can generate higher quality videos.
+                </p>
+            </div>
+        </section>
+    </main>
 
   <!-- ***** Footer ***** -->
 
