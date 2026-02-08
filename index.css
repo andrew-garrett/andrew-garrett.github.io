@@ -690,6 +690,7 @@ ul > li {
     margin-right: auto;
     padding: 10px;
     text-align: center;
+    aspect-ratio: 4 / 3;
 }
 
 .blog__img__small__container {
